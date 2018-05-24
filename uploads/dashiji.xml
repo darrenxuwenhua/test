@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<list>
+	<month parent="2015年07月">
+		<list day="22" type="right" zhai="文章" url="">调整文章列表页，阅读展开更人性化，阅读感加强粘度吸引力</list>
+		<list day="18" type="rights" zhai="插件" url="question/227">首页限制图片显示为3张，并为新版的用户提供插件下载</list>
+		<list day="06" type="right" zhai="调整" url="">修正部分错误，文章阅读列表页JS调整，更人性化</list>
+    </month>
+	<month parent="2015年06月">
+		<list day="28" type="rights" zhai="图片" url="">访客反映图片弹出问题，于是进行了修正和修复，追求更完美</list>
+		<list day="26" type="right" zhai="首页" url="">首页增加话题调用及后台设置的部分调整，修正编辑器CSS</list>
+		<list day="01" type="rights" zhai="功能" url="question/190">加入模拟回复功能，营造站内会员气氛，提高站内会员活跃度</list>
+    </month>
+	<month parent="2015年05月">
+		<list day="28" type="right" zhai="模板" url="">伊人集模板越来越多人喜欢，为防止小人扒窍及偷盗加强了安全</list>
+		<list day="18" type="rights" zhai="图片" url="">加快图片响应，利用图片缓存生成，提高页面响应速度</list>
+		<list day="16" type="right" zhai="专题" url="">调整了专题显示，同时美化了一下会员登录和注册页面</list>
+		<list day="15" type="rights" zhai="水印" url="">继续更正并增加图片水印，全新调整列表展示等</list>
+		<list day="08" type="right" zhai="XML" url="">大事记修订为XML文件加载，修改XML即可加入大事记</list>
+		<list day="04" type="rights" zhai="瀑布" url="pinglun">制作瀑布流，灵感来自QQ牛评等，制作效果无厘头</list>
+    </month>
+    <month parent="2015年04月">
+		<list day="29" type="right" zhai="修正" url="">继续修正部分错误，加入他们说功能</list>
+		<list day="23" type="rights" zhai="QQ" url="">启伪静态，顺利通过QQ互联审核</list>
+		<list day="20" type="right" zhai="微调" url="">发现注册页面及手机版问题，修正字体颜色及手机JS错误</list>
+		<list day="19" type="rights" zhai="模板" url="">伊人集模板基本定型，原购买用户 同步升级</list>
+		<list day="14" type="right" zhai="更新" url="">更新模板更多功能，增加各种调用，并优惠提供给用户</list>
+		<list day="08" type="rights" zhai="修订" url="">再次修订模板，更加小清新，制作大事记，增加音乐等功能，手机版展示图片</list>
+    </month>
+    <month parent="2015年03月">
+		<list day="26" type="right" zhai="调整" url="">加入轮播功能，更显大气正规</list>
+		<list day="15" type="rights" zhai="调整" url="">编辑器进行调整，加入 mp3 配乐</list>
+		<list day="08" type="right" zhai="合作" url="">与 86298 源码交易网合作，提供伊人集模板</list>
+    </month>
+    <month parent="2015年02月">
+		<list day="25" type="rights" zhai="会员" url="">注册会员逐渐增多，内容更丰富，同时各大搜索引擎开始收录</list>
+		<list day="18" type="right" zhai="模板" url="">小清新伊人集模板全面上线并成功修订各方面错误，放入香港VPS。崭新亮相</list>
+		<list day="14" type="rights" zhai="开通" url="">情人节！伊人集全面开通，并开始制作模板和网站功能</list>
+    </month>
+    <month parent="2014年12月">
+		<list day="25" type="right" zhai="域名" url="">成功注册域名www.yirenji.com 初步定名为 伊人集 或者 亿人迹 或者 亿人记</list>
+    </month>
+</list>

@@ -1,0 +1,190 @@
+<?php if ($this->posts_list) {?>
+<?php foreach($this->posts_list as $key => $val) {?>
+<div class="aw-item" id="aw-item_<?php echo $key;?>">
+	<div class="aw-user-imgs">
+	<?php if ($val['anonymous'] == 0) { ?><a class="aw-user-name aw-user-name-o hidden-xs" data-id="<?php echo $val['user_info']['uid']; ?>" href="people/<?php echo $val['user_info']['url_token']; ?>" rel="nofollow"><img src="<?php echo get_avatar_url($val['user_info']['uid'], 'max'); ?>" alt="" /><p><?php echo $val['user_info']['user_name'];?></p><?php if ($val['user_info']['verified']) { ?><?php if ($val['user_info']['verified'] == 'personal') { ?><i class="icon icon-v"></i><?php } else { ?><i class="icon icon-v i-ve"></i><?php } ?><?php } ?></a><?php } else { ?><a class="aw-user-name aw-user-name-o hidden-xs" href="javascript:;"><img src="<?php echo G_STATIC_URL; ?>/common/avatar-max-img.png" alt="<?php _e('匿名用户'); ?>" title="<?php _e('匿名用户'); ?>" /><p><?php _e('匿名用户'); ?></p></a><?php } ?>
+	<div class="userline hidden-xs" id="userline_<?php echo $key;?>"></div>
+	</div>
+	<div class="aw-question-content" id="aw-question-content_<?php echo $key;?>">
+	<div class="pull-right">
+		<div class="zanbox"><i class="icon icon-agree"></i>
+		<?php echo $val['zans']; ?>
+		</div>
+	</div>
+		<p>
+			<?php if ($val['question_id']) { 
+			$view_count=$val['view_count'];
+			$view_counts=$val['answer_count'];?>
+			<span class="text-color-999">
+			<?php if ($val['answer_count'] > 0) { ?>
+				<?php _e('回复'); ?> 
+			<?php } else { ?>
+				<?php _e('发起'); ?>
+			<?php } ?>
+				<?php if ($_GET['category'] != $val['category_id'] AND $val['category_info']['title']) { ?>
+				<a class="aw-question-tagst" href="explore/category-<?php echo $val['category_info']['url_token']; ?>"><?php echo $val['category_info']['title']; ?></a>
+				<?php } ?>
+			<?php if ($val['answer_count'] > 0) { ?>
+				 <?php echo date_friendly($val['answer_info']['add_time']); ?> 
+			<?php } else { ?>
+				 <?php echo date_friendly($val['add_time']); ?> 
+			<?php } ?>
+				 <?php _e('(%s 人关注)', $val['focus_count']); ?>
+			</span>
+			<?php } else { 
+			$view_count=$val['views'];
+			$view_counts=$val['comments'];?>
+				<span class="text-color-999"><?php _e('发布'); ?>
+				<?php if ($_GET['category'] != $val['category_id'] AND $val['category_info']['title']) { ?>
+				<a class="aw-question-tagst" href="explore/category-<?php echo $val['category_info']['url_token']; ?>"><?php echo $val['category_info']['title']; ?></a>
+				<?php } ?>
+				 <?php echo date_friendly($val['add_time']); ?></span>
+			<?php } ?>
+			<?php if($val['is_recommend']>0 || $view_count>=FOX_Huo_num || $view_counts>=FOX_Gan_num || !$val['question_id']){?> <?php }?>
+			<?php if ($val['is_recommend']==1) { ?><span class="spanb_c">荐</span><?php }?>
+			<?php if ($val['question_id']) { ?>
+			<?php if ($val['view_count']>=FOX_Huo_num) { ?><span class="spanb_b">热</span><?php }?>
+			<?php if ($val['answer_count']>=FOX_Gan_num) { ?><span class="spanb_d">议</span><?php }?>
+			<?php if ($val['best_answer']>0) { ?><span class="spanb_e">结</span><?php }?>
+			<?php } else { ?>
+			<span class="spanb_a">文</span>
+			<?php if ($val['views']>=FOX_Huo_num) { ?><span class="spanb_b">热</span><?php }?>
+			<?php if ($val['comments']>=FOX_Gan_num) { ?><span class="spanb_d">议</span><?php }?>
+			<?php } ?>
+		</p>
+		<h4>
+			<?php if ($val['question_id']) { ?>
+			<a class="listlink" href="question/<?php echo $val['question_id']; ?>"><?php echo cjk_substr($val['question_content'], 0, FOX_Biao_num, 'UTF-8', '...'); ?></a>
+			<?php } else { ?>
+			<a class="listlink" href="article/<?php echo $val['id']; ?>"><?php echo cjk_substr($val['title'], 0, FOX_Biao_num, 'UTF-8', '...'); ?></a>
+			<?php } ?>
+			<?php if(count($val['topics'])>0){
+			foreach($val['topics'] as $key => $v){
+			if($key<3){?>			
+				<a class="aw-question-topics" href="topic/<?php echo $v['url_token']; ?>"><?php echo $v['topic_title']; ?></a>
+			<?php }}}?>
+		</h4>			
+		<div class="inner clearfix">
+		<?php if (!$val['question_id']) {
+		$str = FORMAT::ubbfirebox($val['message']);
+		$str = FORMAT::parse_attachs(nl2br(FORMAT::parse_bbcode(cjk_substr(strip_tags($str), 0, 80, 'UTF-8', '...'))));
+		if(strlen(strip_tags($str))>10){?>
+		<p class="question-text" style=" color: #666; font-size:13px;">
+			<?php echo $str; ?>
+		</p>
+		<?php }}else{
+		$str = FORMAT::ubbfirebox($val['question_detail']);
+		$str = FORMAT::parse_attachs(nl2br(FORMAT::parse_bbcode(cjk_substr(strip_tags($str), 0, 80, 'UTF-8', '...'))));
+		if(strlen(strip_tags($str))>10){?>
+		<p class="question-text" style=" color: #666; font-size:13px;">
+			<?php echo $str; ?>
+		</p>
+		<?php }} ?>
+		<?php if ($val['attachs']) {?>
+		<div class="inners clearfix">
+		<div class="row">
+			<?php
+			$atnum=($val['attachs'])?count($val['attachs']):'1';
+			$atnums=4;
+			if($atnum<=3){
+			foreach($val['attachs'] AS $attach) { ?>
+			<div class="shibox shiboximg col-xs-<?php echo $atnums;?> col-sm-<?php echo $atnums;?> col-md-<?php echo $atnums;?>">
+				<a href="<?php echo $attach['attachment']; ?>" target="_blank" data-fancybox-group="thumb" rel="lightbox">
+				<img class="img-polaroidst img-responsive" src="<?php echo $attach['thumb']; ?>" alt="<?php echo $attach['file_name']; ?>" />
+				</a>
+			</div>
+			<?php }}else{
+			$rand_attachs = array_rand($val['attachs'], 3);
+			foreach($rand_attachs AS $key => $attach) { 
+			?>
+			<div class="shibox shiboximg col-xs-<?php echo $atnums;?> col-sm-<?php echo $atnums;?> col-md-<?php echo $atnums;?>">
+				<?php if($key==0 && $atnum>3){?><div class="num">共<?php echo $atnum;?>张</div><?php }?>
+				<a href="<?php echo $val['attachs'][$attach]['attachment']; ?>" target="_blank" data-fancybox-group="thumb" rel="lightbox">
+				<img class="img-polaroidst img-responsive" src="<?php echo $val['attachs'][$attach]['thumb']; ?>" alt="<?php echo $val['attachs'][$attach]['file_name']; ?>" />
+				</a>
+			</div>
+			<?php }}?>
+		</div>
+		</div>
+		<?php }else{
+		$body=($val['question_detail'])?$val['question_detail']:$val['message'];
+		$img_array = array();
+		preg_match_all("/\[img\](.*?)\[\/img\]/i",$body,$img_array);
+		$img_array = array_unique($img_array[1]);
+		if(count($img_array)>0){
+		$atnum=count($img_array);?>
+		<div class="inners clearfix">
+		<div class="row">
+			<?php
+			$atnums=4;		
+			foreach($img_array AS $key => $attach) {
+			if($key<3){
+			$im='h=300';?>
+			<div class="shibox shiboximg col-xs-<?php echo $atnums;?> col-sm-<?php echo $atnums;?> col-md-<?php echo $atnums;?>">
+			<?php if($key==0 && $atnum>3){?><div class="num">共<?php echo $atnum;?>张</div><?php }?>
+				<a href="<?php echo $attach; ?>" target="_blank" data-fancybox-group="thumb" rel="lightbox">
+				<img class="img-polaroidst img-responsive" src="<?php echo base_url().'/plugins/st.php?src='.$attach."&".$im."&zc=1";?>" alt="<?php echo $attach; ?>" />
+				</a>
+			</div>
+			<?php }}?>
+		</div>
+		</div>
+		<?php }}?>
+		<div class="awfo-box">
+			<?php if ($_GET['category'] != $val['category_id'] AND $val['category_info']['title']) { ?>
+				<a class="aw-question-tags" href="explore/category-<?php echo $val['category_info']['url_token']; ?>"><?php echo $val['category_info']['title']; ?></a>
+				<?php } ?>
+			<?php if ($val['question_id']) { ?>
+			<?php if ($val['answer_count'] > 0) { ?>
+			<?php if ($val['answer_info']['anonymous']) { ?>
+				<a href="javascript:;" class="aw-user-name"><?php _e('匿名用户'); ?></a><?php } else { ?><a href="people/<?php echo $val['answer_info']['user_info']['url_token']; ?>" class="aw-user-name" data-id="<?php echo $val['answer_info']['user_info']['uid']; ?>"><?php echo $val['answer_info']['user_info']['user_name']; ?></a><?php } ?> 
+				<span class="text-color-9999 idown"><?php _e('回复了问题'); ?> &nbsp;&nbsp;<i class="icon icon-eye fz16"></i> <?php _e('%s 浏览', $val['view_count']); ?> &nbsp;&nbsp;<i class="icon icon-comment"></i> <?php _e('%s', $val['answer_count']); ?> <em><?php _e('回复'); ?></em></span>
+			<?php } else { ?>
+			<?php if ($val['anonymous'] == 0) { ?>
+				<a href="people/<?php echo $val['user_info']['url_token']; ?>" class="aw-user-name"><?php echo $val['user_info']['user_name']; ?></a><?php } else { ?><a href="javascript:;" class="aw-user-name" data-id="<?php echo $val['uid']; ?>"><?php _e('匿名用户'); ?></a><?php } ?> 
+				<span class="text-color-9999 idown"><?php _e('发起了问题'); ?> &nbsp;&nbsp;<i class="icon icon-eye fz16"></i> <?php _e('%s 浏览', $val['view_count']); ?> &nbsp;&nbsp;<i class="icon icon-comment"></i> <?php _e('%s', $val['answer_count']); ?> <em><?php _e('回复'); ?></em></span>
+			<?php } ?>
+			<?php } else { ?>
+				<span class="text-color-9999 idown"><a href="people/<?php echo $val['user_info']['url_token']; ?>" class="aw-user-name"><?php echo $val['user_info']['user_name']; ?></a> <?php _e('发表了文章'); ?> &nbsp;&nbsp;<i class="icon icon-eye fz16"></i> <?php _e('%s 浏览', $val['views']); ?> &nbsp;&nbsp;<i class="icon icon-comment"></i> <?php _e('%s', $val['comments']); ?> <em><?php _e('评论'); ?></em></span>
+			<?php } ?>
+			<?php if($val['attachs']){
+			if (is_array($val['answer_users'])) { ?>
+				<span class="pull-right hidden-xs contribute">   
+				<?php foreach ($val['answer_users'] AS $answer_user) { ?>
+				<a class="aw-user-name" data-id="<?php echo $answer_user['uid']; ?>" href="people/<?php echo $answer_user['url_token']; ?>" rel="nofollow"><img src="<?php echo get_avatar_url($answer_user['uid'], 'mid'); ?>" alt="" /></a>
+				<?php } ?>
+			<?php } else if ($val['question_id']) { ?>
+				<span class="pull-right hidden-xs contribute">
+				<a href="question/<?php echo $val['question_id']; ?>#!answer_form" class="pull-right text-color-999"><?php _e('回复'); ?></a>
+				</span>
+			<?php }}else{
+			if (is_array($val['answer_users'])) { ?>
+			<span class="pull-right hidden-xs contribute">
+				<?php foreach ($val['answer_users'] AS $answer_user) { ?>
+				<a class="aw-user-name" data-id="<?php echo $answer_user['uid']; ?>" href="people/<?php echo $answer_user['url_token']; ?>" rel="nofollow"><img src="<?php echo get_avatar_url($answer_user['uid'], 'mid'); ?>" alt="" /></a>
+				<?php } ?>
+			</span>
+			<?php } else if ($val['question_id']) { ?>
+			<span class="pull-right hidden-xs contribute">
+			<a href="question/<?php echo $val['question_id']; ?>#!answer_form" class="pull-right text-color-999"><?php _e('回复'); ?></a>
+			</span>
+			<?php }} ?>
+		</div>
+		</div>
+	</div>
+</div>
+
+<?php } ?>
+<?php } ?>
+
+<script>
+$(document).ready(function(){
+	var foxh;
+	$('.shibox img').hover(function() {  
+		foxh=$(this).height()-150;
+		$(this).css({"transition":"1s","-webkit-transform":"translateY(-"+foxh+"px)"});
+	 }, function() {
+		$(this).css("-webkit-transform","translateY(0)"); 
+	 });	
+});
+</script>

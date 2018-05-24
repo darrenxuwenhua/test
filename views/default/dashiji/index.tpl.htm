@@ -1,0 +1,53 @@
+<?php TPL::output('global/header.tpl.htm'); ?>
+<link rel="stylesheet" type="text/css" href="<?php echo G_STATIC_URL; ?>/css/fox/dashiji.css" />
+ <script src="<?php echo G_STATIC_URL; ?>/css/fox/quickpager.jquery.js" ></script> 
+<script language="javascript">
+	$(function(){
+		$(".timeline").eq(0).animate({height:"show", width:"show", opacity:"show"}, 1500);
+		$("ul.paging").quickPager({pagerLocation:"both"});
+	});
+</script>
+<div class="aw-container-wrap">
+	<div class="container">
+	<div class="row">
+    <div class="aw-content-wraps clearfix">
+	<div class="aw-mod">
+	<div class="col-sm-12 col-md-12 smod-head">
+		<span class="pull-right hidden-xs">模仿并不难，难得是内核与模板同步，而不是所谓的皮毛！</span>
+		<h2 class="pull-left" style="font-size:18px;"><i class="icon icon-list"></i> 网站大事记</h2>
+	</div>
+	<div class="col-sm-12 col-md-12 smod-body">
+		<ul class="paging timeline">
+		<?php foreach($this->month as $months){?>
+		<li>
+			<div class="timeline-date">
+				<ul>
+					<h2 class="second" style="position: relative;">
+						<span><?php echo $months['parent'];?></span>
+					</h2>
+					<?php foreach($months->list as $days){?>
+					<li>
+						<h3><?php echo $days['day'];?>日<span><?php echo $days['zhai'];?></span></h3>
+						<dl class="<?php echo $days['type'];?>">
+							<?php if(!empty($days['url'])){?>
+								<span><a href="<?php echo $days['url'];?>" target="_blank"><?php echo $days;?></a></span>
+							<?php }else{?>
+								<span><?php echo $days;?></span>
+							<?php }?>
+						</dl>
+					</li>
+					<?php }?>
+				</ul>
+			</div>
+		</li>
+		<?php }?>
+	</ul>
+	</div> 
+ 
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<?php TPL::output('global/footer.tpl.htm'); ?>

@@ -1,0 +1,80 @@
+<?php if (!defined('app_fox')) exit('No direct script access allowed');?>
+<div class="SW_footer">
+	<div class="ft layout clearfix hidden-xs">
+		<div class="slogan"><a href="/"></a></div>
+		<div class="ft_item">
+			<h4 class="a1">关于我们</h4>
+			<ul>
+				<li><a href="" target="_blank" rel="nofollow">本站介绍</a></li>
+				<li><a href="" target="_blank" rel="nofollow">联系我们</a></li>
+				<li><a href="" target="_blank" rel="nofollow">用户协议</a></li>
+				<li><a href="feed/"><?php _e('内容订阅'); ?></a></li>
+			</ul>
+		</div>
+		<div class="ft_item">
+			<h4 class="a2">站内导航</h4>
+			<ul>
+				<li><a href="dashiji/"><?php _e('网站记事'); ?></a></li>
+				<li><a href="music/"><?php _e('听音乐'); ?></a></li>
+				<li><a href="pinglun/"><?php _e('赏牛评'); ?></a></li>
+			</ul>
+		</div>
+		<div class="ft_item">
+			<h4 class="a3">合作赞助</h4>
+			<ul>
+				<li><a href="" target="_blank">空间赞助</a></li>
+				<li><a href="" target="_blank">广告支持</a></li>
+				<li><a href="" target="_blank" rel="nofollow">伊人加入</a></li>
+			</ul>
+		</div>
+		<div class="ft_item">
+			<h4 class="a4">常用链接</h4>
+			<ul>
+				<li><a href="http://www.dou5.com" target="_blank" rel="nofollow">豆屋</a></li>
+				<li><a target="_blank" href="http://wpa.qq.com/msgrd?v=3&amp;uin=1183648628&amp;site=qq&amp;menu=yes"><img border="0" src="<?php echo G_STATIC_URL; ?>/css/fox/img/ft_qq.png" alt="联系站长" title="联系站长"></a></li>
+			</ul>
+		</div>
+		<div class="ft_item hidden-xs hidden-sm">
+			<h4 class="a5">二维码</h4>
+			<a href="http://www.yirenji.com/" target="_blank"><img src="<?php echo G_STATIC_URL; ?>/css/fox/img/QR.png" width="100" height="100" alt="手机访问"></a>
+		</div>
+	</div>
+	<div class="cp">分享 倾听 成长 Copyright © <?php echo date('Y'); ?><?php if(get_setting('icp_beian')){ ?><span class="hidden-xs"> - <?php echo get_setting('icp_beian'); ?><?php } ?>, All Rights Reserved</span> 伊人社区 版权所有 Support by <a target="_blank" title="快网工作室" href="http://www.kuaiwww.com">快网</a></div>
+	<div class="clearfix hidden-xs hidden-sm" id="trans_news"> 
+	<ul id="contain"> 
+	<li>郑重提示：本站是一个公益性的会员交流平台，大家因爱好和需要走在一起，请负责交流认真交往慎重交友小心交心！</li> 
+	<li>本站广告位价格极低，宣传效果明显，如有特殊要求请联系客服。欢迎有广告需要的商家和个人联系投放，让您的信息飞起来！</li> 
+	<li>由于伊人集知名度的不断提高，模仿者越来越多，请大家认准网址(www.yirenji.com) 谨防假冒！感谢大家长期对本站的支持！</li> 
+	<li>免责声明：本站所有话题版块内容均由会员自由发布，使用时请自己分辨真假。发生的任何问题，本站概不负责。</li> 
+	</ul> 
+	</div>
+</div>
+
+<a href="javascript:;" id="gotoTop" class="show hidden-xs"><i></i></a>
+<!-- <a class="aw-back-top hidden-xs" href="javascript:;" onclick="$.scrollTo(1, 600, {queue:true});"><i class="icon icon-up"></i></a>-->
+
+<?php echo get_setting('statistic_code'); ?>
+
+<!-- DO NOT REMOVE -->
+<div id="aw-ajax-box" class="aw-ajax-box hidden-xs"></div>
+<script type="text/javascript" language="javascript"> var Default_isFT = 0 </script>
+<SCRIPT language=Javascript src="<?php echo G_STATIC_URL; ?>/js/fox_language.js"></SCRIPT> 
+<div style="display:none;" id="__crond">
+	<script type="text/javascript">
+		function xxxxx(){ 
+		var container=document.getElementById("contain"); 
+		container.appendChild(container.firstChild); 
+		} 
+		setInterval("xxxxx()",3000); 
+		$(document).ready(function () {
+			$('#__crond').html(unescape('%3Cimg%20src%3D%22' + G_BASE_URL + '/crond/run/<?php echo TIMESTAMP; ?>%22%20width%3D%221%22%20height%3D%221%22%20/%3E'));
+		});
+	</script>
+</div>
+
+<?php TPL::output('global/debuger.tpl.htm'); ?>
+<!-- / DO NOT REMOVE -->
+
+
+</body>
+</html>

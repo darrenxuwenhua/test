@@ -1,0 +1,453 @@
+s,u{
+  text-decoration:none;
+}
+a:hover {
+  color:#0053A5;
+  text-decoration:underline;
+}
+.nav-container li{
+  _vertical-align:top;
+}
+.nav-container li a.rightb{
+  font-family:Arial;
+}
+#bd .rc-tl, #bd .rc-bl{
+  left:-1px;
+  _left:-2px;
+}
+#bd .rc-tr, #bd .rc-br{
+  right:-1px;
+  _right:0px;
+}
+#bd .rc-tl, #bd .rc-tr{
+  _top:0px;
+}
+#bd .rc-bl, #bd .rc-br{
+  bottom:-1px;
+  _bottom:0px;
+}
+.subnav dt{
+  text-align:center;
+  *display:inline;
+}
+.subnav dd{
+  width:93px;
+}
+#bd{
+  border:none;
+  margin-top:0;
+}
+.section{
+  margin-top:10px;
+  border-top:1px solid #E2E2E2;
+}
+.section-title{
+  font-size:14px;
+  color:#0A8305;
+  font-weight:bold;
+  height:28px;
+  line-height:28px;
+  padding-left:15px;
+  padding-right:15px;
+}
+.section-title{
+  padding-top:6px;
+}
+.section-title .title{
+  float:left;
+}
+.section-title .more{
+  font-weight:normal;
+  float:right;
+  color:#0A8305;
+}
+#player{
+  border:0px solid #e1e1e1;
+  padding:1px;
+  position:relative;
+}
+#player .section-title{
+  padding-top:0;
+  background:url("music-sprite.png") -2px -292px;
+}
+#player .wrapper{
+  height:1000px;
+  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAMAAAC67D+PAAAAA3NCSVQICAjb4U/gAAAAYFBMVEVISElJSElGRkZGR0ZGRkhGRUdGRUZGRURHRUdERERFREVERENEQ0VEQ0RDQ0RDQ0NDQkNDQkJDQkFCQkJDQ0JDQUJCQUNCQUJCQUFBQkJBQkFBQUNBQUJBQUFAQEFBQEHP0C16AAAAIHRSTlP//////////////////////////////////////////3Fe9GAAAAAJcEhZcwAACxIAAAsSAdLdfvwAAAAWdEVYdENyZWF0aW9uIFRpbWUAMDkvMDUvMTJLjgLsAAAAHHRFWHRTb2Z0d2FyZQBBZG9iZSBGaXJld29ya3MgQ1M26LyyjAAAAERJREFUCJktzFEKwDAMAlAbSiiFse1jFAq5/zWn0vchgiHYO/M2AFWXobU6oFgUgedg/SwJy1z1qfeXoIjQwoMxVOb8AWnYBm4r/oEYAAAAAElFTkSuQmCC");
+  background: -moz-image-rect(url("music-sprite.png"),200,10,210,0);
+  background: url("player-bg.png")\9;
+  background-color:#414141;
+  position:relative;
+  z-index:1;
+  height:610px;
+}
+#player-frame{
+  height:550px;
+  width:900px;
+  position:absolute;
+  top:30px;
+  left:30px;
+  display:block;
+  background-color:#414141;
+}
+#player .tab{
+  background:#F9FBFB;
+  height:107px;
+  padding-top:4px;
+  padding-left:45px;
+  position:relative;
+  -ms-user-select:none;
+  -moz-user-select:none;
+  -webkit-user-select:none;
+  user-select:none;
+  position:relative;
+  z-index:2;
+}
+#player .tab b.button{
+  background:url("music-sprite.png") no-repeat;
+  width:32px;
+  height:90px;
+  position:absolute;
+  z-index:4;
+  top:8px;
+  cursor:pointer;
+  font-size:0;
+  line-height:0;
+  text-indent:-1000em;
+  overflow:hidden;
+}
+#player .tab b:hover {
+  background-color:#EEE;
+}
+#player .tab b.prev.inactive{
+  background-position:2px 20px;
+  background-color:transparent;
+}
+#player .tab b.next.inactive{
+  background-position:-44px 20px;
+  background-color:transparent;
+}
+#player .tab b.prev{
+  background-position:2px -70px;
+  left:8px;
+}
+#player .tab b.next{
+  background-position:-44px -70px;
+  right:8px;
+}
+#player .tab b.inactive{
+  background-position-y:20px;
+  cursor:default;
+}
+#player .tab .item{
+  text-decoration:none;
+  display:inline-block;
+  width:86px;
+  margin-left:30px;
+  height:102px;
+  outline:none;
+}
+#player .tab a:hover {
+  background:url("music-sprite.png") -100px -150px;
+  position:relative;
+  z-index:10;
+}
+#player .tab a.cur,#player .tab a.cur:hover {
+  cursor:normal;
+  background:url("music-sprite.png") -100px 0;
+  position:relative;
+  z-index:2;
+  margin-left:30px;
+  padding-right:3px;
+  margin-right:-3px;
+  height:128px;
+  margin-bottom:-32px;
+}
+#player .tab .item .logo{
+  display:block;
+  height:64px;
+  width:64px;
+  margin:11px 11px 5px;
+}
+#player .tab .item .title{
+  display:block;
+  text-align:center;
+  color:#666;
+  height:22px;
+  white-space:nowrap;
+  margin-left:7px;
+  width:72px;
+  overflow:hidden;
+}
+#player .close{
+  position:absolute;
+  width:32px;
+  height:18px;
+  line-height:18px;
+  right:4px;
+  top:4px;
+  padding-left:16px;
+  color:#CCC;
+  font-weight:bold;
+  background:url("music-sprite.png") -940px -6px no-repeat;
+  outline:none;
+}
+#player .close:hover {
+  color:#FFF;
+}
+
+#zhuanti .list{
+  width:950px;
+  margin:0 auto;
+  padding-top:14px;
+  *height:132px;
+  *line-height:0;
+  *font-size:0;
+  *zoom:1;
+  overflow:hidden;
+}
+#zhuanti .list .item{
+  _display:inline;
+  font-size:12px;
+  float:left;
+  width:187px;
+  height:132px;
+  _zoom:1;
+}
+#zhuanti .list .item .poster{
+  display:block;
+  width:175px;
+  height:100px;
+  margin:0 auto;
+  border:1px solid white;
+}
+#zhuanti .list .item .poster:hover {
+  border-color:#26A81D;
+}
+#zhuanti .list .item .poster img{
+  display:block;
+  width:175px;
+  height:100px;
+  background:#EEE;
+}
+#zhuanti .list .item .title{
+  text-align:center;
+  line-height:32px;
+  height:32px;
+  width:181px;
+  margin:0 auto;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+#zhuanti .list .item .title a{
+  color:#666;
+}
+#zhuanti .list .item .title a:hover {
+  color:#333;
+  text-decoration:underline;
+}
+#hotlist{
+  border-bottom:1px solid #E2E2E2;
+  overflow:hidden;
+  _display:inline-block;
+}
+#mainlists{
+  width:625px;
+  height:548px;
+  overflow:hidden;
+  border-right:1px solid #E2E2E2;
+  float:left;
+}
+#mainlists .section-title{
+  padding-right:30px;
+}
+#mainlists .wrapper{
+  width:640px;
+  margin-right:14px;
+  display:inline-block;
+}
+#mainlists .list{
+  width:272px;
+  padding-left:4px;
+  padding-right:40px;
+  padding-top:16px;
+  float:left;
+}
+#mainlists .list .tab{
+  border-bottom:1px solid #E2E2E2;
+  height:27px;
+}
+#mainlists .list .tab .item{
+  float:left;
+  width:96px;
+  line-height:28px;
+  height:28px;
+  margin-bottom:-1px;
+  position:relative;
+  font-weight:bold;
+  text-align:center;
+}
+#mainlists .list .tab .cur{
+  background:url("music-sprite.png") -200px 0;
+}
+#mainlists .list .page{
+  padding-top:4px;
+  display:none;
+}
+#mainlists .list ul.cur{
+  display:block;
+}
+#mainlists .list ul li{
+  height:39px;
+  border-bottom:1px solid #E2E2E2;
+  *line-height:0;
+  *font-size:0;
+}
+#mainlists .list ul i{
+  float:left;
+  width:32px;
+  font-size:18px;
+  font-weight:normal;
+  font-style:normal;
+  color:#666;
+  text-align:center;
+  font-family:"Arial";
+  line-height:38px;
+}
+#mainlists .list ul .hilight i{
+  color:#FF4E10;
+}
+#mainlists .list ul b{
+  font-size:14px;
+  float:left;
+  color:#0053A5;
+  font-weight:normal;
+  width:200px;
+  padding-left:4px;
+  padding-right:4px;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  line-height:39px;
+}
+#mainlists .list ul b a{
+  
+}
+#mainlists .list ul p{
+  width:32px;
+  float:left;
+}
+#mainlists .list ul p a{
+  float:left;
+  width:20px;
+  height:28px;
+  margin-left:4px;
+  margin-top:4px;
+  background:url("music-sprite.png") -300px 0;
+}
+#mainlists .list ul p a:hover {
+  background-position:-300px -36px;
+}
+#mainlists .list .playall{
+  border:none;
+  padding-top:4px;
+}
+#mainlists .list .playall .button{
+  float:right;
+  background:url("music-sprite.png") -324px 0;
+  width:124px;
+  height:29px;
+  margin-top:8px;
+}
+#mainlists .list .playall .button:hover {
+  background-position:-324px -36px;
+}
+#musictypes, #singers{
+  float:left;
+  width:326px;
+  overflow:hidden;
+  padding-right:4px;
+  padding-left:4px;
+  margin-left:-1px;
+  border-left:1px solid #E2E2E2;
+}
+#musictypes .list{
+  overflow:hidden;
+  width:312px;
+  margin-left:15px;
+  padding:12px 0 8px;
+}
+#musictypes li{
+  _display:inline;
+  float:left;
+  white-space:nowrap;
+  margin-left:-1.5em;
+  margin-right:1.5em;
+  line-height:27px;
+}
+#musictypes li a{
+  _zoom:1;
+}
+#musictypes s{
+  text-decoration:none;
+  padding:0 0.75em;
+  color:#999;
+}
+#singers .list{
+  width:300px;
+  table-layout:fixed;
+  margin-left:12px;
+}
+#singers .list thead td{
+  height:100px;
+  vertical-align:middle;
+  text-align:center;
+  padding:8px 0;
+}
+#singers .list td{
+  width:100px;
+}
+#singers .list tbody p{
+  width:90px;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+  text-align:center;
+  padding-left:5px;
+  line-height:24px;
+}
+#singers .list img{
+  width:90px;
+  height:90px;
+  border:1px solid #EEE;
+  display:block;
+  margin:0 auto;
+}
+#singers .list a:hover img{
+  border-color:#16A20D;
+}
+#singers .list b{
+  background:black;
+  opacity:0.5;
+  *filter: alpha(opacity=50);
+  -ms-filter: alpha(opacity=50);
+  display:block;
+  margin:-22px auto 0;
+  width:92px;
+  height:22px;
+}
+#singers .list u{
+  display:block;
+  position:relative;
+  color:white;
+  font-weight:bold;
+  width:88px;
+  margin:-22px auto 0;
+  line-height:22px;
+  height:22px;
+  overflow:hidden;
+  cursor:pointer;
+}
+#singers .list thead a{
+  text-decoration:none;
+}

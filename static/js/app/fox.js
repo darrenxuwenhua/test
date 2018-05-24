@@ -1,0 +1,1 @@
+$(document).ready(function () { 	$("body").backstretch([      "/static/css/default/img/dbg.jpg", 	  "/static/css/fox/img/bg.jpg", 	  "/static/css/fox/img/bgs.jpg"     ], {duration: 3000, fade: 750});	});
